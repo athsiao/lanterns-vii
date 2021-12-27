@@ -28,6 +28,18 @@ canvas {
   display: block;
 }
 
+/* Title */
+h1 {
+  float: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-size: 50px;
+  color: white;
+}
+
 /* Nav bar styling using ul */
 ul {
   position: fixed;
@@ -84,11 +96,6 @@ input {
   background: #FFFFFF;
   box-sizing: border-box;
   transition: 500ms;
-}
-
-/* Subheading */
-h2 {
-  color: #2800FF;
 }
 
 /* Interactive image */
