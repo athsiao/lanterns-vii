@@ -51,10 +51,11 @@
      href="https://mlh.io/seasons/2022/events?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2022-season&utm_content=black"
      target="_blank">
     
-    <img src="https://s3.amazonaws.com/logged-assets/trust-badge/2022/mlh-trust-badge-2022-black.svg" 
+    <img src="https://s3.amazonaws.com/logged-assets/trust-badge/2022/mlh-trust-badge-2022-gray.svg" 
          alt="Major League Hacking 2022 Hackathon Season" 
          style="width:100%">
   </a>
+  
   
   <!-- Navigation Bar -->
   <ul>
@@ -81,6 +82,7 @@
         0.1, // near plane
         1000 // far plane
       );
+      camera.position.z = 5; // set z position of camera
       
       // Setup renderer
       var renderer = new THREE.WebGLRenderer( { antialias: true });
@@ -94,8 +96,25 @@
       window.addEventListener("resize", () => {
         renderer.setSize(window.innerWidth, window.innerHeight);
         camera.aspect = window.innerWidth / window.innerHeight;
-        camera.UpdateProjectMatrix();
+        camera.UpdateProjectionMatrix();
       })
+
+      // Prep shape
+      var geometry = new THREE.IcosahedronGeometry(1.5, 0); // radius, detail
+      var material = new THREE.MeshPhongMaterial( { color: 0xFEB979 } );
+      var shape = new THREE.Mesh(geometry, material);
+
+      // Add shape to the scene
+      scene.add(shape);
+
+      // Add directional light
+      var dLight = new THREE.DirectionalLight(0x00A3FF, 0.6); // color, intensity
+      dLight.position.set(10, 0, 25); // x, y, z
+      scene.add(dLight);
+
+      // Add ambient light
+      var aLight = new THREE.AmbientLight(0xFF002E, 0.6); // color, intensity
+      scene.add(aLight);
 
       // Actually renders the content
       renderer.render(scene, camera);
