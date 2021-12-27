@@ -71,6 +71,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/102/three.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
 
+  <h1>HackMerced VII</h1>
+  
   <script>
 
     // Setup scene
@@ -109,14 +111,14 @@
     var material = new THREE.MeshPhongMaterial({ color: 0xFEB979 });
     
     // Add multiple shapes to the scene
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < 15; i++) {
       var shape = new THREE.Mesh(geometry, material);
 
       /*  Randomly chooses a position:
           A number -0.5 to 0.5 scaled differently in different dimensions  */
-      shape.position.x = (Math.random() - 0.5) * 8;
-      shape.position.y = (Math.random() - 0.5) * 4;
-      shape.position.z = Math.random() * -5;
+      shape.position.x = (Math.random() - 0.5) * 40;
+      shape.position.y = (Math.random() - 0.5) * 8;
+      shape.position.z = (Math.random() + 0.2) * -5;
       scene.add(shape);
     }
 
@@ -129,10 +131,10 @@
     var aLight = new THREE.AmbientLight(0xFF002E, 0.6); // color, intensity
     scene.add(aLight);
 
-    // Add point light (mouse light)
-    var pLight = new THREE.DirectionalLight(0xff0000, 0.8); // color, intensity, distance
-    pLight.position.set(0, 0, -2.5); // x, y, z
-    scene.add(pLight);
+    // Add mouse light
+    var mLight = new THREE.PointLight(0xff0000, 0.8); // color, intensity, distance
+    mLight.position.set(0, 0, -2.5); // x, y, z
+    scene.add(mLight);
 
     // Actually renders the content
     var render = function() {
@@ -142,7 +144,9 @@
       // if (shape.position.y < 5) {
       //   shape.position.y += 0.1;
       // }
-
+      if (mLight.intensity > 0) {
+        mLight.intensity -= 0.01;
+      }
       renderer.render(scene, camera);
     }
 
@@ -161,7 +165,8 @@
       }
 
       // Moves light according to mouse position
-      pLight.position.set(mouse.x * 16, mouse.y * 9, -1);
+      mLight.position.set(mouse.x * 16, mouse.y * 9, -1);
+      mLight.intensity = 0.8;
     }
 
     render();
