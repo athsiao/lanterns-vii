@@ -1,129 +1,159 @@
 <!DOCTYPE html>
 
 <html lang="en">
-  
-  <!-- Unseen by user -->
-  <head>
 
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Unseen by user -->
 
-    <title>HackMerced VII Testing</title>
-    
-    <!-- Import the webpage's stylesheet -->
-    <link rel="stylesheet" href="/style.css" />
+<head>
 
-    <!-- Import the webpage's javascript file -->
-    <!--<script src="/script.js" defer></script> -->
-    
-  
-    <!-- Alter the width based on screen size for responsiveness -->
-    <style>
-      @media (min-width: 992px) {
-        .app {
-          width: 23%;
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        /*  Example of a class modification for responsiveness
+  <title>HackMerced VII Testing</title>
+
+  <!-- Import the webpage's stylesheet -->
+  <link rel="stylesheet" href="/style.css" />
+
+  <!-- Import the webpage's javascript file -->
+  <!--<script src="/script.js" defer></script> -->
+
+
+  <!-- Alter the width based on screen size for responsiveness -->
+  <style>
+    @media (min-width: 992px) {
+      .app {
+        width: 23%;
+      }
+
+      /*  Example of a class modification for responsiveness
             #maincontent {
             border-image-source: url(assets/phone-frame.png);
             border-image-slice: 525;
             border-image-outset: 10px;
             } */
-        }
+    }
 
-        @media (min-width: 769px) and (max-width: 991px) {
-            .app {
-                width: 30%;
-            }
-        }
-    </style>
-  
-  </head>
-  
-  <!-- Visible to the user -->
-  
-  <!-- MLH trust badge -->
-  <body>
-  
+    @media (min-width: 769px) and (max-width: 991px) {
+      .app {
+        width: 30%;
+      }
+    }
+  </style>
+
+</head>
+
+<!-- Visible to the user -->
+
+<!-- MLH trust badge -->
+
+<body>
+
   <a id="mlh-trust-badge"
-     style="display:block;max-width:100px;min-width:60px;position:fixed;left:50px;top:0;width:10%;z-index:10000" 
-     href="https://mlh.io/seasons/2022/events?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2022-season&utm_content=black"
-     target="_blank">
-    
-    <img src="https://s3.amazonaws.com/logged-assets/trust-badge/2022/mlh-trust-badge-2022-gray.svg" 
-         alt="Major League Hacking 2022 Hackathon Season" 
-         style="width:100%">
+    style="display:block;max-width:100px;min-width:60px;position:fixed;left:50px;top:0;width:10%;z-index:10000"
+    href="https://mlh.io/seasons/2022/events?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2022-season&utm_content=black"
+    target="_blank">
+
+    <img src="https://s3.amazonaws.com/logged-assets/trust-badge/2022/mlh-trust-badge-2022-gray.svg"
+      alt="Major League Hacking 2022 Hackathon Season" style="width:100%">
   </a>
-  
-  
+
+
   <!-- Navigation Bar -->
   <ul>
-    <li class ="apply"><a href="hackmerced.com">Application</a></li>
+    <li class="apply"><a href="hackmerced.com">Application</a></li>
     <li><a href="hackmerced.com">Contact Us</a></li>
     <li><a href="hackmerced.com">Sponsors</a></li>
     <li><a href="hackmerced.com">Past Hackathons</a></li>
     <li><a href="hackmerced.com">Home</a></li>
   </ul>
-    
+
   <!-- Import everything necessary for complex scene -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/102/three.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
-  
-    <script>
-      
-      // Setup scene
-      var scene = new THREE.Scene();
-      
-      // Setup camera
-      var camera = new THREE.PerspectiveCamera(
-        75, // field of view
-        window.innerWidth / window.innerHeight, // aspect ratio
-        0.1, // near plane
-        1000 // far plane
-      );
-      camera.position.z = 5; // set z position of camera
-      
-      // Setup renderer
-      var renderer = new THREE.WebGLRenderer( { antialias: true });
-      renderer.setClearColor("#1D0D1A");
+
+  <script>
+
+    // Setup scene
+    var scene = new THREE.Scene();
+
+    // Setup camera
+    var camera = new THREE.PerspectiveCamera(
+      75, // field of view
+      window.innerWidth / window.innerHeight, // aspect ratio
+      0.1, // near plane
+      1000 // far plane
+    );
+    camera.position.z = 5; // set z position of camera
+
+    // Setup renderer
+    var renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setClearColor("#1D0D1A");
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    // Makes scene visible on browser
+    document.body.appendChild(renderer.domElement);
+
+    // Resizes canvas when screen is resized
+    window.addEventListener('resize', () => {
       renderer.setSize(window.innerWidth, window.innerHeight);
-      
-      // Makes scene visible on browser
-      document.body.appendChild(renderer.domElement);
-      
-      // Resizes canvas when screen is resized
-      window.addEventListener("resize", () => {
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.UpdateProjectionMatrix();
-      })
+      camera.aspect = (window.innerWidth / window.innerHeight);
+      camera.UpdateProjectionMatrix();
+    })
 
-      // Prep shape
-      var geometry = new THREE.IcosahedronGeometry(1.5, 0); // radius, detail
-      var material = new THREE.MeshPhongMaterial( { color: 0xFEB979 } );
-      var shape = new THREE.Mesh(geometry, material);
+    // Add raycaster for shape interaction
+    var raycaster = new THREE.Raycaster();
+    var mouse = new THREE.Vector2();
 
-      // Add shape to the scene
-      scene.add(shape);
+    // Prep shape
+    var geometry = new THREE.IcosahedronGeometry(1.5, 0); // radius, detail
+    var material = new THREE.MeshPhongMaterial({ color: 0xFEB979 });
+    var shape = new THREE.Mesh(geometry, material);
 
-      // Add directional light
-      var dLight = new THREE.DirectionalLight(0x00A3FF, 0.6); // color, intensity
-      dLight.position.set(10, 0, 25); // x, y, z
-      scene.add(dLight);
+    // Add shape to the scene
+    scene.add(shape);
 
-      // Add ambient light
-      var aLight = new THREE.AmbientLight(0xFF002E, 0.6); // color, intensity
-      scene.add(aLight);
+    // Add directional light
+    var dLight = new THREE.DirectionalLight(0x00A3FF, 0.6); // color, intensity
+    dLight.position.set(10, 0, 25); // x, y, z
+    scene.add(dLight);
 
-      // Actually renders the content
+    // Add ambient light
+    var aLight = new THREE.AmbientLight(0xFF002E, 0.6); // color, intensity
+    scene.add(aLight);
+
+    // Actually renders the content
+    var render = function() {
+      requestAnimationFrame(render);
+      // shape.rotation.x += 0.05;
+      // shape.rotation.y += 0.05;
       renderer.render(scene, camera);
+    }
 
-    </script>
-    
+    // Every mouse movement
+    function onMouseMove(event) {
+      event.preventDefault();
+      mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+      mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
 
-    <footer class="footer">
-      
-    </footer>
-  </body>
+      raycaster.setFromCamera(mouse, camera);
+
+      var intersects = raycaster.intersectObjects(scene.children, true);
+      for (var i = 0; i < intersects.length; i++) {
+        intersects[i].object.rotation.x += 0.05;
+        //intersects[i].object.material.color.set(0xEAFEFF);
+      }
+    }
+
+    render();
+
+    window.addEventListener('mousemove', onMouseMove);
+
+  </script>
+
+
+  <footer class="footer">
+
+  </footer>
+</body>
+
 </html>
