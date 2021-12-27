@@ -71,7 +71,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/102/three.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
 
-  <h1>HackMerced VII</h1>
+  <div class = "landingText">
+    <h1>HackMerced VII</h1>
+    <h2>March XX - XX</h2>
+    <h3>University of California, Merced</h3>
+    <button>Register Now!</button>
+  </div>
   
   <script>
 
@@ -136,17 +141,15 @@
     mLight.position.set(0, 0, -2.5); // x, y, z
     scene.add(mLight);
 
-    // Actually renders the content
+    // Every frame, do this
     var render = function() {
       requestAnimationFrame(render);
 
-      // insert stuff that will happen every frame
-      // if (shape.position.y < 5) {
-      //   shape.position.y += 0.1;
-      // }
+      // If light is not completely dimmed, slowly dim light
       if (mLight.intensity > 0) {
         mLight.intensity -= 0.01;
       }
+
       renderer.render(scene, camera);
     }
 
