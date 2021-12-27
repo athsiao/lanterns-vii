@@ -29,14 +29,38 @@ canvas {
 }
 
 /* Title */
-h1 {
+
+.landingText {
   float: center;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  text-align: center;
+  
+  margin: 0;
+  padding: 0;
+}
+
+h1 {  
+  margin: 0;
+  padding: 0;
 
   font-size: 50px;
+  color: white;
+}
+
+h2 {
+  margin: 0;
+  padding: 0;
+
+  color: white;
+}
+
+h3 {
+  margin: 0;
+  padding: 0;
+
   color: white;
 }
 
@@ -88,16 +112,25 @@ li a:hover {
   margin: 0;
 }
 
-/* Button - Add it from the README instructions */
-button,
-input {
+button {
   font-family: inherit;
   font-size: 100%;
-  background: #FFFFFF;
   box-sizing: border-box;
-  transition: 500ms;
+  
+  margin: 10px;
+  padding: 10px 20px 10px 20px;
+
+  border-radius: 15px;
+  border-style: none;
+
+  color: #230404;
+  background-image: linear-gradient(to right, #FEC58B, #F29A73);
 }
 
+button:hover{
+  color: #b15226;
+  background-image: linear-gradient(to right, #ffebd6, #fde0d4);
+}
 /* Interactive image */
 .illustration:active {
   transform: translateY(5px);
