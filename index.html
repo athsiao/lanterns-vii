@@ -19,16 +19,16 @@
   
     <!-- Alter the width based on screen size for responsiveness -->
     <style>
-        @media (min-width: 992px) {
-            .app {
-                width: 23%;
-            }
+      @media (min-width: 992px) {
+        .app {
+          width: 23%;
+        }
 
-            /*  Example of a class modification for responsiveness
-                #maincontent {
-                border-image-source: url(assets/phone-frame.png);
-                border-image-slice: 525;
-                border-image-outset: 10px;
+        /*  Example of a class modification for responsiveness
+            #maincontent {
+            border-image-source: url(assets/phone-frame.png);
+            border-image-slice: 525;
+            border-image-outset: 10px;
             } */
         }
 
@@ -69,52 +69,39 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/102/three.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
   
-  <script>
-    
-    // Setup scene
-    var scene = new THREE.Scene();
-    
-    // Setup camera
-    var camera = new THREE.PerspectiveCamera(
-      75, // field of view
-      window.innerWidth / window.innerHeight, // aspect ratio
-      0.1, // near plane
-      1000 // far plane
-    );
-    
-    // Setup renderer
-    var renderer = new THREE.WebGLRenderer(
-     { antialias: true; }
-    );
-    
-    renderer.setClearColor("#1D0D1A"); // set background color
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    
-    document.body.appendChild(renderer.domElement);
-    
-  </script>
-    
-    
-  <h1 class="title">Hello World!</h1>
+    <script>
+      
+      // Setup scene
+      var scene = new THREE.Scene();
+      
+      // Setup camera
+      var camera = new THREE.PerspectiveCamera(
+        75, // field of view
+        window.innerWidth / window.innerHeight, // aspect ratio
+        0.1, // near plane
+        1000 // far plane
+      );
+      
+      // Setup renderer
+      var renderer = new THREE.WebGLRenderer( { antialias: true });
+      renderer.setClearColor("#1D0D1A");
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      
+      // Makes scene visible on browser
+      document.body.appendChild(renderer.domElement);
+      
+      // Resizes canvas when screen is resized
+      window.addEventListener("resize", () => {
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.UpdateProjectMatrix();
+      })
 
-  <img
-      src="https://cdn.glitch.com/a9975ea6-8949-4bab-addb-8a95021dc2da%2Fillustration.svg?v=1618177344016"
-      class="illustration"
-      alt="Editor illustration"
-      title="Click the image!"
-  />
+      // Actually renders the content
+      renderer.render(scene, camera);
+
+    </script>
     
-  <button>
-      Click me!
-  </button>
-          
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu tincidunt tortor, viverra blandit augue. Quisque non pellentesque velit. Etiam egestas tortor urna, a viverra dolor pretium in. Curabitur in tortor orci. Curabitur mattis et orci at viverra. Ut aliquam, mi at mattis tincidunt, dui sapien luctus leo, pellentesque commodo ipsum tortor a nibh. Integer molestie molestie sapien, in laoreet diam scelerisque quis. Sed non magna efficitur, vehicula urna in, hendrerit nibh.
-Pellentesque dui enim, laoreet eu rhoncus ac, tincidunt sed felis. Nulla et arcu id metus sodales gravida. Proin at tortor in lorem tempus feugiat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eleifend molestie metus, eu ultricies sem interdum ut. Nullam aliquam tempor lacus, in cursus neque tristique rutrum. Aliquam scelerisque mollis ligula sit amet dignissim. Fusce interdum velit eget neque pulvinar posuere. Phasellus imperdiet ipsum ac malesuada suscipit. Etiam sit amet facilisis quam.
-Curabitur ex metus, fringilla ac leo ac, venenatis pretium dolor. Vivamus maximus congue risus ut suscipit. Phasellus at lacinia eros. Vestibulum a hendrerit nunc. Etiam fermentum neque ac lorem rhoncus pretium. Nam vitae vulputate ipsum. Mauris tortor lacus, venenatis non ligula quis, sodales egestas dolor. Pellentesque rutrum placerat ullamcorper. Fusce vehicula, ex eu ultricies luctus, turpis ipsum cursus mi, ac ullamcorper nibh massa eget mi. Ut feugiat nibh arcu, vitae ultrices nibh consequat at. Nunc lectus elit, pharetra et commodo at, congue eu nibh. Proin eu mauris augue. Donec elit ex, pretium ac nisl quis, aliquet ornare libero. Phasellus tristique, nibh vitae scelerisque varius, libero ex semper ex, ut pellentesque urna erat ac felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
-Fusce sapien tellus, egestas non dui a, dictum commodo est. Donec sed vestibulum tortor. Nunc in tellus condimentum, tempor ligula non, venenatis eros. Aliquam et ligula sapien. Curabitur dapibus ut mi eleifend ultrices. Morbi cursus consectetur odio, quis tempus arcu tincidunt vel. Sed nec luctus est. Quisque sed arcu at nibh mollis hendrerit nec sed velit. Curabitur porttitor a libero consectetur accumsan. Integer ut sapien faucibus, consectetur lectus vulputate, dignissim ligula. Donec sollicitudin lacinia arcu, nec tristique sem tincidunt ultrices. Proin pulvinar velit elit, sed sagittis sapien gravida in. Duis faucibus elit id vehicula congue. Donec faucibus dignissim felis a venenatis. In porttitor facilisis enim.
-Nam pretium convallis feugiat. Etiam sagittis erat sit amet porta commodo. Nullam pharetra nisi eget lectus aliquet, a porta enim elementum. In aliquet diam in gravida efficitur. Vestibulum viverra, felis aliquet hendrerit imperdiet, diam ex suscipit eros, at dictum mauris elit at ante. Vestibulum non nisl rutrum, molestie dui in, accumsan metus. Maecenas mattis tortor in euismod ornare. Ut scelerisque ex non eros consequat venenatis. Sed dui orci, cursus quis scelerisque vitae, finibus a justo. Nulla facilisi.
-  </p>
 
     <footer class="footer">
       
