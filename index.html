@@ -81,7 +81,7 @@
       75, // field of view
       window.innerWidth / window.innerHeight, // aspect ratio
       0.1, // near plane
-      1000 // far plane
+      10 // far plane
     );
     camera.position.z = 5; // set z position of camera
 
@@ -104,13 +104,21 @@
     var raycaster = new THREE.Raycaster();
     var mouse = new THREE.Vector2();
 
-    // Prep shape
+    // Define shape
     var geometry = new THREE.IcosahedronGeometry(1.5, 0); // radius, detail
     var material = new THREE.MeshPhongMaterial({ color: 0xFEB979 });
-    var shape = new THREE.Mesh(geometry, material);
+    
+    // Add multiple shapes to the scene
+    for (var i = 0; i < 10; i++) {
+      var shape = new THREE.Mesh(geometry, material);
 
-    // Add shape to the scene
-    scene.add(shape);
+      /*  Randomly chooses a position:
+          A number -0.5 to 0.5 scaled differently in different dimensions  */
+      shape.position.x = (Math.random() - 0.5) * 8;
+      shape.position.y = (Math.random() - 0.5) * 4;
+      shape.position.z = Math.random() * -5;
+      scene.add(shape);
+    }
 
     // Add directional light
     var dLight = new THREE.DirectionalLight(0x00A3FF, 0.6); // color, intensity
@@ -121,11 +129,20 @@
     var aLight = new THREE.AmbientLight(0xFF002E, 0.6); // color, intensity
     scene.add(aLight);
 
+    // Add point light (mouse light)
+    var pLight = new THREE.DirectionalLight(0xff0000, 0.8); // color, intensity, distance
+    pLight.position.set(0, 0, -2.5); // x, y, z
+    scene.add(pLight);
+
     // Actually renders the content
     var render = function() {
       requestAnimationFrame(render);
-      // shape.rotation.x += 0.05;
-      // shape.rotation.y += 0.05;
+
+      // insert stuff that will happen every frame
+      // if (shape.position.y < 5) {
+      //   shape.position.y += 0.1;
+      // }
+
       renderer.render(scene, camera);
     }
 
@@ -142,6 +159,9 @@
         intersects[i].object.rotation.x += 0.05;
         //intersects[i].object.material.color.set(0xEAFEFF);
       }
+
+      // Moves light according to mouse position
+      pLight.position.set(mouse.x * 16, mouse.y * 9, -1);
     }
 
     render();
