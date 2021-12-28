@@ -101,25 +101,46 @@ ul.navbar li a:hover {
 }
 
 /* Tracks component styling */
-.tracks {
+#tracks { /* Main body (background) for tracks component*/
   background-color: #FD8D82;
+  height: 100vh;
+
+  margin: 0;
   padding: 64px;
 }
 
-.trackmodule {
-  display: block;
-  width: 200px;
-  height: 200px;
+#tracks h2 { /* Component title */
+  text-align: center;
+  padding: 0;
+}
+
+#tracks p { /* Description for the component*/
+  text-align: center;
+  color: orange;
+}
+
+.trackmodule { /* Boxes the tracks go in */
+  width: 33%; /* TODO: scale for responsiveness */
+  float: left;
+}
+
+.track {
   background-color: white;
   border-radius: 15px;
-  padding: 64px;
+  margin: 10px;
 }
 
 .trackmodule h4 {
-  color: red;
+  display: block;
+  padding: 15px 15px 0px 15px;
+  text-align: center;
+
 }
 
-.trackmodule p {
+#tracks .trackmodule p {
+  display: block;
+  padding: 0px 15px 15px 15px;
+  text-align: center;
   color: purple;
 }
 /* Page structure */
