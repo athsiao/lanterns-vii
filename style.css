@@ -64,8 +64,8 @@ h3 {
   color: white;
 }
 
-/* Nav bar styling using ul */
-ul {
+/* Nav bar styling */
+ul.navbar {
   position: fixed;
   top: 0;
   left: 0;
@@ -78,11 +78,11 @@ ul {
   background-color: #FD8D82;
 }
 
-li {
+ul.navbar li {
   float: right;
 }
 
-li a {
+ul.navbar li a {
   display: block;
   color: white;
   text-align: center;
@@ -91,15 +91,37 @@ li a {
   transition-duration: 0.3s;
 }
 
-li.apply {
+ul.navbar li.apply {
   border-radius: 15px;
   background-color: #F97466;
 }
 
-li a:hover {
+ul.navbar li a:hover {
   transform: scale(1.2);
 }
 
+/* Tracks component styling */
+.tracks {
+  background-color: #FD8D82;
+  padding: 64px;
+}
+
+.trackmodule {
+  display: block;
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  border-radius: 15px;
+  padding: 64px;
+}
+
+.trackmodule h4 {
+  color: red;
+}
+
+.trackmodule p {
+  color: purple;
+}
 /* Page structure */
 
 .title {
