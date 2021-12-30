@@ -47,11 +47,11 @@ h1 {
   padding: 0;
 
   font-size: 50px;
-  font-style: italic;
+  /*font-style: italic;*/
   font-weight: 600;
   letter-spacing: 10px;
 
-  text-shadow: 0px 0px 15px #E9BE91;
+  text-shadow: 0px 0px 15px #E9BE91, 0px 0px 25px #0a0509;
   color: #FFFAEE;
 }
 
@@ -61,7 +61,7 @@ h2 {
 
   font-weight: 400;
   letter-spacing: 2px;
-  text-shadow: 0px 0px 12px #E9BE91;
+  text-shadow: 0px 0px 12px #E9BE91, 0px 0px 25px #0a0509;
   color: #FFFAEE;
 }
 
@@ -71,7 +71,7 @@ h3 {
 
   font-weight: 400;
   letter-spacing: 2px;
-  text-shadow: 0px 0px 12px #E9BE91;
+  text-shadow: 0px 0px 12px #E9BE91, 0px 0px 25px #0a0509;
   color: #FFFAEE;
 }
 
@@ -114,7 +114,7 @@ ul.navbar li a:hover {
 
 /* Tracks component styling */
 #tracks { /* Main body (background) for tracks component*/
-  background-color: #FD8D82;
+  background-image: linear-gradient(180deg, #521C1A, #383030);
   height: 120vh;
 
   margin: 0;
@@ -124,11 +124,17 @@ ul.navbar li a:hover {
 #tracks h2 { /* Component title */
   text-align: center;
   padding: 0;
+  font-weight: 500;
+  letter-spacing: 4px;
+
+  text-shadow: 0px 0px 15px #E9BE91;
+  color: #FFFAEE;
 }
 
 #tracks p { /* Description for the component*/
   text-align: center;
-  color: orange;
+  text-shadow: 0px 0px 10px #E9BE91;
+  color: #FFFAEE;
 }
 
 .trackmodule { /* Boxes the tracks go in */
@@ -140,20 +146,23 @@ ul.navbar li a:hover {
   background-color: white;
   border-radius: 15px;
   margin: 10px;
+
+  
+  background-image: linear-gradient(45deg, #FEC58B, #F29A73);
 }
 
 .trackmodule h4 {
   display: block;
   padding: 15px 15px 0px 15px;
   text-align: center;
-
+  color: #230404;
 }
 
 #tracks .trackmodule p {
   display: block;
-  padding: 0px 15px 15px 15px;
+  padding: 0px 40px 40px 40px;
   text-align: center;
-  color: purple;
+  color: #230404;
 }
 /* Page structure */
 
