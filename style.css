@@ -136,6 +136,7 @@ ul.navbar li a:hover {
   border-radius: 15px;
   margin: 10px;
 
+  transition: transform 0.4s;
   box-shadow: 0px 0px 30px #E06F4B;
   background-image: linear-gradient(45deg, #FEC58B, #F29A73);
 }
@@ -143,7 +144,8 @@ ul.navbar li a:hover {
 .trackmodule h4 {
   display: block;
   width: auto;
-  padding: 15px 15px 0px 15px;
+  padding: 40px 40px 0px 40px;
+  letter-spacing: 2px;
 
   text-align: center;
   text-shadow: none;
@@ -158,6 +160,11 @@ ul.navbar li a:hover {
   text-align: center;
   text-shadow: none;
   color: #230404;
+}
+
+/* Rise on hover */
+.track:hover {
+  transform: translateY(-5px);
 }
 
 /* FAQ component styling */
@@ -254,11 +261,6 @@ p.description { /* Description for the component*/
 #registration:hover{
   color: #b15226;
   background-image: linear-gradient(to right, #ffebd6, #fde0d4);
-}
-
-/* Interactive image */
-.illustration:active {
-  transform: translateY(5px);
 }
 
 /* Button dip
