@@ -147,23 +147,54 @@ ul.navbar li a:hover {
   border-radius: 15px;
   margin: 10px;
 
-  
+  box-shadow: 0px 0px 30px #E06F4B;
   background-image: linear-gradient(45deg, #FEC58B, #F29A73);
 }
 
 .trackmodule h4 {
   display: block;
+  width: auto;
   padding: 15px 15px 0px 15px;
+
   text-align: center;
+  text-shadow: none;
   color: #230404;
 }
 
 #tracks .trackmodule p {
   display: block;
+  width: auto;
   padding: 0px 40px 40px 40px;
+
   text-align: center;
+  text-shadow: none;
   color: #230404;
 }
+
+/* FAQ component styling */
+button.faq { /* FAQ questions */
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.faqcontent { /* FAQ answer dropdown */
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+p.faqcontent { /* FAQ answer text */
+  color: blue;
+}
+
 /* Page structure */
 
 .title {
@@ -176,7 +207,7 @@ ul.navbar li a:hover {
   margin: 0;
 }
 
-button {
+#registration {
   font-family: inherit;
   font-size: 100%;
   font-weight: 500;
@@ -193,10 +224,11 @@ button {
   background-image: linear-gradient(to right, #FEC58B, #F29A73);
 }
 
-button:hover{
+#registration:hover{
   color: #b15226;
   background-image: linear-gradient(to right, #ffebd6, #fde0d4);
 }
+
 /* Interactive image */
 .illustration:active {
   transform: translateY(5px);
