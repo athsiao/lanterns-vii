@@ -131,6 +131,11 @@
       shape.position.x = (Math.random() - 0.5) * 40;
       shape.position.y = (Math.random() - 0.5) * 8;
       shape.position.z = (Math.random() + 0.2) * -5;
+
+      // Configures shadows
+      shape.castShadow = true;
+      shape.receiveShadow = true;
+      
       scene.add(shape);
     }
 
