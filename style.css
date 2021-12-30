@@ -47,21 +47,32 @@ h1 {
   padding: 0;
 
   font-size: 50px;
-  color: white;
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: 10px;
+
+  text-shadow: 0px 0px 15px #E9BE91;
+  color: #FFFAEE;
 }
 
 h2 {
   margin: 0;
   padding: 0;
 
-  color: white;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-shadow: 0px 0px 12px #E9BE91;
+  color: #FFFAEE;
 }
 
 h3 {
   margin: 0;
-  padding: 0;
+  padding: 5px;
 
-  color: white;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-shadow: 0px 0px 12px #E9BE91;
+  color: #FFFAEE;
 }
 
 /* Nav bar styling */
@@ -75,7 +86,7 @@ ul.navbar {
   margin: 0;
   padding: 10px;
   overflow: hidden;
-  background-color: #FD8D82;
+  background-color: #0C2136;
 }
 
 ul.navbar li {
@@ -93,7 +104,7 @@ ul.navbar li a {
 
 ul.navbar li.apply {
   border-radius: 15px;
-  background-color: #F97466;
+  background-color: #123345;
 }
 
 ul.navbar li a:hover {
@@ -158,6 +169,8 @@ ul.navbar li a:hover {
 button {
   font-family: inherit;
   font-size: 100%;
+  font-weight: 500;
+  letter-spacing: 1px;
   box-sizing: border-box;
   
   margin: 10px;

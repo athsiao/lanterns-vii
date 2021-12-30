@@ -72,8 +72,8 @@
 
   <!---------- LANDING PAGE TEXT ---------->
   <div class = "landingText">
-    <h1>HackMerced VII</h1>
-    <h2>March XX - XX</h2>
+    <h1>HACKMERCED VII</h1>
+    <h2>March 4 - 6, 2022</h2>
     <h3>University of California, Merced</h3>
     <button>Register Now!</button>
   </div>
@@ -101,6 +101,8 @@
     var renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setClearColor("#1D0D1A");
     renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
     // Makes scene visible on browser
     document.body.appendChild(renderer.domElement);
@@ -142,9 +144,10 @@
     scene.add(aLight);
 
     // Add mouse light
-    var mLight = new THREE.PointLight(0xff0000, 0.8); // color, intensity, distance
+    var mLight = new THREE.PointLight(0xE9BE91, 0.8); // color, intensity, distance
     mLight.position.set(0, 0, -2.5); // x, y, z
     scene.add(mLight);
+    mLight.castShadow = true;
 
     // Every frame, do this
     var render = function() {
