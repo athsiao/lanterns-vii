@@ -81,6 +81,7 @@ ul.navbar {
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 10;
   
   list-style-type: none;
   margin: 0;
@@ -102,7 +103,7 @@ ul.navbar li a {
   transition-duration: 0.3s;
 }
 
-ul.navbar li.apply {
+ul.navbar li.register {
   border-radius: 15px;
   background-color: #123345;
 }
@@ -114,10 +115,10 @@ ul.navbar li a:hover {
 /* Tracks component styling */
 #tracks { /* Main body (background) for tracks component*/
   background-color: #FD8D82;
-  height: 100vh;
+  height: 120vh;
 
   margin: 0;
-  padding: 64px;
+  padding: 100px 200px 200px 200px;
 }
 
 #tracks h2 { /* Component title */
