@@ -185,16 +185,22 @@ ul.navbar li a:hover {
 }
 
 button.faq { /* FAQ questions */
-  background-color: #eee;
+  background-image: linear-gradient(45deg, #FEC58B, #F29A73);
   border-radius: 15px;
-  color: #444;
+  color: #230404;
   cursor: pointer;
   padding: 18px;
   width: 100%;
   border: none;
+
+  letter-spacing: 1px;
   text-align: left;
+  text-transform: uppercase;
+  font-family: inherit;
+  font-weight: 600;
+
   outline: none;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .faqcontent { /* FAQ answer dropdown */
@@ -207,6 +213,9 @@ button.faq { /* FAQ questions */
   transition: max-height 0.2s ease-out;
   border-style: none none none solid;
   border-width: 5px;
+
+  text-align: left;
+  font-weight: 500;
 }
 
 p.faqcontent { /* FAQ answer text */
@@ -214,6 +223,13 @@ p.faqcontent { /* FAQ answer text */
 }
 
 /* Page structure */
+
+img {
+  position: absolute;
+  object-fit: fill;
+  width: 100%;
+  height: 100%;
+}
 
 .title {
   color: #2800FF;
@@ -261,12 +277,4 @@ p.description { /* Description for the component*/
 #registration:hover{
   color: #b15226;
   background-image: linear-gradient(to right, #ffebd6, #fde0d4);
-}
-
-/* Button dip
-- Toggling this class on and off will move it down and up again
-- The button transition property above determines the speed of the translate (500ms)
-*/
-.dipped {
-  transform: translateY(5px);
 }

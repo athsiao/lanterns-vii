@@ -86,10 +86,14 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
   
   <!---------- LANDING PAGE BACKGROUND | made using Three.js ---------->
+ 
   <script>
+
+    const bgtexture = new THREE.TextureLoader().load("HM_tower.png");
 
     // Setup scene
     var scene = new THREE.Scene();
+    scene.background = bgtexture;
 
     // Setup camera
     var camera = new THREE.PerspectiveCamera(
@@ -101,8 +105,8 @@
     camera.position.z = 5; // set z position of camera
 
     // Setup renderer
-    var renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setClearColor("#1D0D1A");
+    var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setClearColor("#000000", 0);
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -224,7 +228,9 @@
   </div>
   
   <!---------- SCHEDULE COMPONENT ----------->
+  <div id="schedule">
 
+  </div>
 
   <!---------- FAQ COMPONENT ---------->
   <div id="faqs">
@@ -233,21 +239,56 @@
     <p class="description">Lorem ipsum dolor sit amet. Here is a description about the FAQ.</p>
 
     <div class="question">
-      <button type="button" class="faq">Open Collapsible</button>
+      <button type="button" class="faq">What is a hackathon?</button>
       <div class="faqcontent">
         <p>Lorem ipsum...</p>
       </div>
     </div>
 
     <div class="question">
-      <button type="button" class="faq">Open Collapsible</button>
+      <button type="button" class="faq">Who can attend?</button>
       <div class="faqcontent">
         <p>Lorem ipsum...</p>
       </div>
     </div>
 
     <div class="question">
-      <button type="button" class="faq">Open Collapsible</button>
+      <button type="button" class="faq">Do I need coding experience?</button>
+      <div class="faqcontent">
+        <p>Lorem ipsum...</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <button type="button" class="faq">How do teams work?</button>
+      <div class="faqcontent">
+        <p>Lorem ipsum...</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <button type="button" class="faq">Will HackMerced VII be in-person or virtual?</button>
+      <div class="faqcontent">
+        <p>Lorem ipsum...</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <button type="button" class="faq">Does it cost anything?</button>
+      <div class="faqcontent">
+        <p>Lorem ipsum...</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <button type="button" class="faq">Is there a code of conduct?</button>
+      <div class="faqcontent">
+        <p>Lorem ipsum...</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <button type="button" class="faq">My question isn't listed here!</button>
       <div class="faqcontent">
         <p>Lorem ipsum...</p>
       </div>
