@@ -169,7 +169,7 @@ ul.navbar li a:hover {
 
 /* FAQ component styling */
 #faqs { /* Main body (background) for tracks component*/
-  background-image: linear-gradient(-180deg, #521C1A, #383030);
+  background-image: linear-gradient(-180deg, #601D20, #893739);
   height: 120vh;
 
   margin: 0;
@@ -220,6 +220,15 @@ button.faq { /* FAQ questions */
 
 p.faqcontent { /* FAQ answer text */
   color: blue;
+}
+
+/* sponsors component styling */
+#sponsors { /* Main body (background) for sponsors component*/
+  background-image: linear-gradient(-180deg, #521C1A, #383030);
+  height: 120vh;
+
+  margin: 0;
+  padding: 100px 200px 200px 200px;
 }
 
 /* Page structure */

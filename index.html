@@ -84,11 +84,13 @@
   <!-- Import everything necessary for landing page background -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/102/three.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+  <script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/loaders/GLTFLoader.js"></script>
   
   <!---------- LANDING PAGE BACKGROUND | made using Three.js ---------->
  
   <script>
 
+    // Import background texture
     const bgtexture = new THREE.TextureLoader().load("HM_tower.png");
 
     // Setup scene
@@ -298,7 +300,11 @@
   </div>
   
   <!---------- SPONSORS COMPONENT ---------->
+  <div id="sponsors">
 
+    <h2 class="moduletitle">SPONSORS</h2>
+    <img src="lol.png">
+  </div>
   
   <!---------- FOOTER COMPONENT ---------->
   <footer class="footer">
